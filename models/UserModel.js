@@ -7,6 +7,8 @@ const userSchema = new mongoose.Schema(
     lastName: { type: String, default: null, required: false },
     email: { type: String, unique: true, required: false, default: null },
     password: { type: String },
+    friends: [{ type: mongoose.Types.ObjectId, required: true, ref: "user" }],
+    posts: [{ type: mongoose.Types.ObjectId, required: true, ref: "post" }],
   },
   { timestamps: true }
 );
